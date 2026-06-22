@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="96" fill="#1a1a1a"/>
+  <!-- Cigarette body -->
+  <rect x="80" y="226" width="280" height="60" rx="10" fill="#d4b896"/>
+  <!-- Filter -->
+  <rect x="360" y="226" width="72" height="60" rx="10" fill="#e05c2a"/>
+  <!-- Smoke lines -->
+  <path d="M140 210 Q150 185 140 160 Q130 135 140 110" stroke="#888" stroke-width="8" fill="none" stroke-linecap="round"/>
+  <path d="M190 200 Q205 170 190 140 Q175 110 190 80" stroke="#666" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M240 205 Q258 178 244 150 Q230 122 244 95" stroke="#555" stroke-width="6" fill="none" stroke-linecap="round"/>
+</svg>
