@@ -223,7 +223,7 @@ body {
 }
 
 .cal-cell {
-  aspect-ratio: 1;
+  min-height: 52px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -232,6 +232,7 @@ body {
   background: #1e1e1e;
   cursor: default;
   position: relative;
+  padding: 4px 2px;
 }
 
 .cal-cell--empty {
@@ -269,6 +270,13 @@ body {
   line-height: 1;
 }
 
+.cal-day-cost {
+  font-size: 0.55rem;
+  color: #a06040;
+  margin-top: 2px;
+  line-height: 1;
+}
+
 .cal-summary {
   margin-top: 16px;
   background: #202020;
@@ -299,6 +307,7 @@ body {
   color: #777;
   margin-top: 2px;
 }
+
 
 /* ========== Settings Tab ========== */
 .settings-form {

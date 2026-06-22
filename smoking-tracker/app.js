@@ -184,6 +184,11 @@ function renderCalendar() {
       cntEl.className = 'cal-day-count';
       cntEl.textContent = count + '本';
       cell.appendChild(cntEl);
+
+      const costEl = document.createElement('span');
+      costEl.className = 'cal-day-cost';
+      costEl.textContent = formatCost(calcCost(count));
+      cell.appendChild(costEl);
     }
 
     grid.appendChild(cell);
@@ -198,6 +203,7 @@ function renderCalendar() {
       <div class="cal-summary-cost">${formatCost(calcCost(totalCount))}</div>
     </div>
   `;
+
 }
 
 function calPrev() {
