@@ -1,6 +1,6 @@
 'use strict';
 
-const CACHE = 'smoking-tracker-v1';
+const CACHE = 'smoking-tracker-v2';
 const FILES = [
   './',
   './index.html',
