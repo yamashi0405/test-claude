@@ -4,6 +4,7 @@ const KEYS = {
   RECORDS: 'smoking_records',
   PRICE_PER_PACK: 'smoking_price_per_pack',
   CIGS_PER_PACK: 'smoking_cigs_per_pack',
+  THEME: 'smoking_theme',
 };
 
 // ---- Date helpers ----
@@ -255,6 +256,30 @@ function saveSettings() {
   }, 1500);
 }
 
+// ---- Theme ----
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem(KEYS.THEME, theme);
+
+  const isDark = theme === 'dark';
+  document.getElementById('theme-toggle').setAttribute('aria-checked', isDark ? 'true' : 'false');
+  document.getElementById('theme-opt-light').classList.toggle('active', !isDark);
+  document.getElementById('theme-opt-dark').classList.toggle('active', isDark);
+
+  const metaColor = document.getElementById('meta-theme-color');
+  if (metaColor) metaColor.content = isDark ? '#1a1a1a' : '#f5f5f5';
+}
+
+function loadTheme() {
+  applyTheme(localStorage.getItem(KEYS.THEME) || 'dark');
+}
+
+function toggleTheme() {
+  const current = document.documentElement.getAttribute('data-theme') || 'dark';
+  applyTheme(current === 'dark' ? 'light' : 'dark');
+}
+
 // ---- Tab switching ----
 
 function switchTab(name) {
@@ -275,6 +300,7 @@ document.getElementById('cal-next').addEventListener('click', calNext);
 document.getElementById('btn-smoke').addEventListener('click', addCigarette);
 document.getElementById('btn-undo').addEventListener('click', undoLast);
 document.getElementById('btn-save-settings').addEventListener('click', saveSettings);
+document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
 
 document.getElementById('price-per-pack').addEventListener('input', updatePerCigDisplay);
 document.getElementById('cigs-per-pack').addEventListener('input', updatePerCigDisplay);
@@ -283,5 +309,6 @@ document.querySelectorAll('.tab-btn').forEach(btn => {
   btn.addEventListener('click', () => switchTab(btn.dataset.tab));
 });
 
+loadTheme();
 loadSettings();
 renderToday();

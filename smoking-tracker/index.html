@@ -5,8 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>喫煙計測</title>
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#1a1a1a">
+  <meta name="theme-color" content="#1a1a1a" id="meta-theme-color">
   <link rel="apple-touch-icon" href="icon.svg">
+  <script>document.documentElement.setAttribute('data-theme', localStorage.getItem('smoking_theme') || 'dark');</script>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -67,6 +68,14 @@
           </div>
           <div class="per-cig-info">
             1本あたり <span id="per-cig-price">¥28.5</span>
+          </div>
+          <div class="form-group">
+            <label>表示テーマ</label>
+            <div class="theme-row">
+              <span class="theme-option" id="theme-opt-light">ライト</span>
+              <button id="theme-toggle" class="toggle-switch" role="switch" aria-checked="true" aria-label="ダークモード切替"></button>
+              <span class="theme-option active" id="theme-opt-dark">ダーク</span>
+            </div>
           </div>
           <button id="btn-save-settings" class="btn-save">保存</button>
         </div>
